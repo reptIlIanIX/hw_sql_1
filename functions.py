@@ -6,7 +6,7 @@ def get_data_from_base():
     con = sqlite3.connect('netflix.db')  # Подключаемся к БД
     cur = con.cursor()  # Запускаем курсор, с помощью которого мы будем получать данные из БД
     sqlite_query = f"Select title, country, release_year, description FROM netflix ORDER BY release_year DESC"
-    result = cur.execute(sqlite_query)  # Выполняем запрос с помощью курсора
+    cur.execute(sqlite_query)  # Выполняем запрос с помощью курсора
     data = cur.fetchall()  # С помощью этой функции получаем результат запроса в виде списка кортежей
     con.close()  # После выполнения запросов обязательно закрываем соединение с БД
     return data
@@ -16,7 +16,7 @@ def get_title_year_from_base():
     con = sqlite3.connect('netflix.db')  # Подключаемся к БД
     cur = con.cursor()  # Запускаем курсор, с помощью которого мы будем получать данные из БД
     sqlite_query = f"Select title, release_year FROM netflix LIMIT 100"
-    result = cur.execute(sqlite_query)  # Выполняем запрос с помощью курсора
+    cur.execute(sqlite_query)  # Выполняем запрос с помощью курсора
     data = cur.fetchall()  # С помощью этой функции получаем результат запроса в виде списка кортежей
     con.close()  # После выполнения запросов обязательно закрываем соединение с БД
     return data
@@ -26,7 +26,7 @@ def get_data_for_age_rating():
     con = sqlite3.connect('netflix.db')  # Подключаемся к БД
     cur = con.cursor()  # Запускаем курсор, с помощью которого мы будем получать данные из БД
     sqlite_query = f"Select title, rating, description FROM netflix"
-    result = cur.execute(sqlite_query)  # Выполняем запрос с помощью курсора
+    cur.execute(sqlite_query)  # Выполняем запрос с помощью курсора
     data = cur.fetchall()  # С помощью этой функции получаем результат запроса в виде списка кортежей
     con.close()  # После выполнения запросов обязательно закрываем соединение с БД
     return data
@@ -36,7 +36,7 @@ def get_genre_from_base():
     con = sqlite3.connect('netflix.db')  # Подключаемся к БД
     cur = con.cursor()  # Запускаем курсор, с помощью которого мы будем получать данные из БД
     sqlite_query = f"Select title, listed_in, description, release_year FROM netflix ORDER BY release_year DESC"
-    result = cur.execute(sqlite_query)  # Выполняем запрос с помощью курсора
+    cur.execute(sqlite_query)  # Выполняем запрос с помощью курсора
     data = cur.fetchall()  # С помощью этой функции получаем результат запроса в виде списка кортежей
     con.close()  # После выполнения запросов обязательно закрываем соединение с БД
     return data
@@ -46,7 +46,7 @@ def get_actors_from_base():
     con = sqlite3.connect('netflix.db')  # Подключаемся к БД
     cur = con.cursor()  # Запускаем курсор, с помощью которого мы будем получать данные из БД
     sqlite_query = f"Select title, netflix.cast FROM netflix"
-    result = cur.execute(sqlite_query)  # Выполняем запрос с помощью курсора
+    cur.execute(sqlite_query)  # Выполняем запрос с помощью курсора
     data = cur.fetchall()  # С помощью этой функции получаем результат запроса в виде списка кортежей
     con.close()  # После выполнения запросов обязательно закрываем соединение с БД
     return data
@@ -56,7 +56,7 @@ def get_all_from_base():
     con = sqlite3.connect('netflix.db')  # Подключаемся к БД
     cur = con.cursor()  # Запускаем курсор, с помощью которого мы будем получать данные из БД
     sqlite_query = f"Select title, type, release_year, listed_in, description FROM netflix"
-    result = cur.execute(sqlite_query)  # Выполняем запрос с помощью курсора
+    cur.execute(sqlite_query)  # Выполняем запрос с помощью курсора
     data = cur.fetchall()  # С помощью этой функции получаем результат запроса в виде списка кортежей
     con.close()  # После выполнения запросов обязательно закрываем соединение с БД
     return data
